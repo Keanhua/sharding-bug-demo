@@ -6,7 +6,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   shardingsphere:
-    datasource:
+    dataSources:
       names: master
       master:
         type: com.alibaba.druid.pool.DruidDataSource
@@ -21,18 +21,38 @@ spring:
         testWhileIdle: true
         testOnBorrow: false
         testOnReturn: false
-    encrypt:
-      encryptors:
-        encryptor_aes:
-          type: AES
-          props:
-            aes.key.value: 123456789123
-      tables:
-        payslip_cms:
-          columns:
-            title:
-              cipherColumn: title
-              encryptor: encryptor_aes
+    rules:
+      encrypt:
+        encryptors:
+          encryptor_aes:
+            type: AES
+            props:
+              aes-key-value: khpNXrRnmib5
+        tables:
+          sharding_test:
+            columns:
+              zzhm:
+                cipherColumn: zzhm
+                encryptor: encryptor_aes
+              title:
+                cipherColumn: title
+                encryptor: encryptor_aes
+              related_zzhm:
+                cipherColumn: related_zzhm
+                encryptor: encryptor_aes
+          sharding_test_201911:
+            columns:
+              content:
+                cipherColumn: content
+                encryptor: encryptor_aes
+              title:
+                cipherColumn: title
+                encryptor: encryptor_aes
+          shangbao_idcard_verify:
+            columns:
+              idcard:
+                cipherColumn: idcard
+                encryptor: encryptor_aes
     props:
       sql.show: true
 mybatis-plus:
