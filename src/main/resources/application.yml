@@ -6,7 +6,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   shardingsphere:
-    dataSources:
+    datasource:
       names: master
       master:
         type: com.alibaba.druid.pool.DruidDataSource
@@ -24,7 +24,7 @@ spring:
     rules:
       encrypt:
         encryptors:
-          encryptor_aes:
+          encryptor-aes:
             type: AES
             props:
               aes-key-value: khpNXrRnmib5
@@ -33,28 +33,28 @@ spring:
             columns:
               zzhm:
                 cipherColumn: zzhm
-                encryptor: encryptor_aes
+                encryptorName: encryptor-aes
               title:
                 cipherColumn: title
-                encryptor: encryptor_aes
+                encryptorName: encryptor-aes
               related_zzhm:
                 cipherColumn: related_zzhm
-                encryptor: encryptor_aes
+                encryptorName: encryptor-aes
           sharding_test_201911:
             columns:
               content:
                 cipherColumn: content
-                encryptor: encryptor_aes
+                encryptorName: encryptor-aes
               title:
                 cipherColumn: title
-                encryptor: encryptor_aes
+                encryptorName: encryptor-aes
           shangbao_idcard_verify:
             columns:
               idcard:
                 cipherColumn: idcard
-                encryptor: encryptor_aes
+                encryptorName: encryptor-aes
     props:
-      sql.show: true
+      sql-show: true
 mybatis-plus:
   mapper-locations: classpath*:mapper/**/*.xml
   typeAliasesPackage: com.example.shardingbugdemo.entity
