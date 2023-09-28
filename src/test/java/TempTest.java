@@ -39,11 +39,11 @@ public class TempTest {
         shardingTestService.save(shardingTest);
         List<ShardingTest> saveShardingTest=new ArrayList<>();
         ShardingTest shardingTest1 =new ShardingTest();
-        shardingTest.setAliveFlag(1);
-        shardingTest.setTitle("111");
-        shardingTest.setATitle("222");
-        shardingTest.setContent(jsonObject.toJSONString());
-        shardingTest.setCreateTime(new Date());
+        shardingTest1.setAliveFlag(1);
+        shardingTest1.setTitle("111");
+        shardingTest1.setATitle("222");
+        shardingTest1.setContent(jsonObject.toJSONString());
+        shardingTest1.setCreateTime(new Date());
         saveShardingTest.add(shardingTest1);
         ShardingTest shardingTest2 =new ShardingTest();
         shardingTest2.setAliveFlag(1);
@@ -53,7 +53,10 @@ public class TempTest {
         shardingTest2.setCreateTime(new Date());
         saveShardingTest.add(shardingTest2);
         shardingTestService.saveBatch(saveShardingTest);
-        System.out.println(JSON.toJSONString(shardingTest));
+        System.out.println(JSON.toJSONString(saveShardingTest));
+
+        List<ShardingTest> list = shardingTestService.list();
+        System.out.println(JSON.toJSONString(list));
     }
 
 }
