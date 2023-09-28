@@ -1,0 +1,32 @@
+dataSources:
+  master:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: '!QAZ2wsx'
+    maxActive: 20
+    initialSize: 1
+    minIdle: 1
+    validationQuery: select 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+rules:
+- !ENCRYPT
+  tables:
+    sharding_test:
+      columns:
+        zzhm:
+          cipher:
+            name: zzhm
+            encryptorName: aes_encryptor
+        title:
+          cipher:
+            name: title
+            encryptorName: aes_encryptor
+  encryptors:
+    aes_encryptor:
+      type: AES
+      props:
+        aes-key-value: khpNXrRnmib5

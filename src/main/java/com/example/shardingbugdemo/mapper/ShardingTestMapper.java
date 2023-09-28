@@ -10,7 +10,4 @@ import java.util.List;
 
 @Component
 public interface ShardingTestMapper extends BaseMapper<ShardingTest> {
-    List<ShardingTest> selectA(@Param("a") String a);
-
-    void insertSelect();
 }

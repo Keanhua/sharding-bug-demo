@@ -42,9 +42,6 @@ public class ShardingTest extends Model<ShardingTest> {
     /** 内容 **/
     private String content;
 
-    /** 排序 **/
-    private Integer sort;
-
     /** 证件号码 **/
     private String zzhm;
 
